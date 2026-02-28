@@ -30,12 +30,13 @@ class AyatWidget extends StatelessWidget {
       onTap: () {
         viewModel.selectAyah(index);
         viewModel.getTafseer(
-          tafseerId: 2, // التفسير الميسر
+          tafseerId: 1, // التفسير الميسر
           suraNumber: suraNumber,
           ayahNumber: index + 1,
         );
         // نغير الحالة في الـ ViewModel
         showModalBottomSheet(
+          sheetAnimationStyle: AnimationStyle(curve: Curves.easeInCirc),
           context: context,
           backgroundColor: AppColors.secondaryColor, // لون خلفية شيك
           shape: RoundedRectangleBorder(
@@ -105,7 +106,9 @@ class AyatWidget extends StatelessWidget {
     return Consumer<QuranViewModel>(
       builder: (context, vm, child) {
         if (vm.state.tafserState == RequestState.loading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(
+            child: CircularProgressIndicator(color: AppColors.primaryColor),
+          );
         }
         if (vm.state.tafserState == RequestState.error) {
           return Center(
@@ -116,14 +119,24 @@ class AyatWidget extends StatelessWidget {
           );
         }
 
-        final tafseerText = vm.state.tafseer?.first.text ?? "لا يوجد تفسير";
+        final tafseerText = vm.state.tafseer?.text ?? "لا يوجد تفسير";
         return Padding(
           padding: EdgeInsets.all(20.w),
           child: SingleChildScrollView(
-            child: Text(
-              tafseerText,
-              textDirection: TextDirection.rtl,
-              style: TextStyle(fontSize: 18.sp, color: AppColors.primaryColor),
+            child: Container(
+              padding: .symmetric(vertical: 12.h, horizontal: 20.w),
+              decoration: BoxDecoration(
+                borderRadius: .circular(16.r),
+                border: .all(color: AppColors.primaryColor),
+              ),
+              child: Text(
+                "${vm.state.tafseer?.tafseerName ?? ""} : ${tafseerText}",
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  color: AppColors.primaryColor,
+                ),
+              ),
             ),
           ),
         );

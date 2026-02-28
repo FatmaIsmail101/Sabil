@@ -48,7 +48,9 @@ class QuranDetailsScreen extends StatelessWidget {
 
   Widget _buildBody(QuranState state, {int? suraNum}) {
     if (state.requestState == RequestState.loading) {
-      return const Center(child: CircularProgressIndicator());
+      return const Center(
+        child: CircularProgressIndicator(color: AppColors.primaryColor),
+      );
     }
 
     if (state.requestState == RequestState.error) {

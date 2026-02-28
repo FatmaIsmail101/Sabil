@@ -7,7 +7,7 @@ class QuranState {
   String? errorMessage;
   List<String>? quranDetails;
   //Tafseer
-  List<TafserResponse>? tafseer;
+  TafserResponse? tafseer;
   String? tafeerErrorMessage;
   RequestState? tafserState;
 
@@ -25,7 +25,7 @@ class QuranState {
     String? errorMessage,
     List<String>? quranDetails,
     //Tafseer
-    List<TafserResponse>? tafseer,
+    TafserResponse? tafseer,
     String? tafeerErrorMessage,
     RequestState? tafserState,
   }) {

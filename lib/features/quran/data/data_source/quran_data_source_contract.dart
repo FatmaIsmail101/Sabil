@@ -3,7 +3,7 @@ import '../model/tafser_response.dart';
 
 abstract class QuranDataSourceContract {
   Future<BaseResponse<List<String>>> getQuranDetails(int index);
-  Future<BaseResponse<List<TafserResponse>>> getTafseer({
+  Future<BaseResponse<TafserResponse>> getTafseer({
     required int tafseerId,
     required int suraNumber,
     required int ayahNumber,

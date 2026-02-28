@@ -13,6 +13,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../../features/quran/data/api/quran_client.dart' as _i927;
 import '../../features/quran/data/data_source/quran_data_source_contract.dart'
     as _i690;
 import '../../features/quran/data/data_source/quran_data_source_impl.dart'
@@ -34,6 +35,7 @@ extension GetItInjectableX on _i174.GetIt {
     final dioModule = _$DioModule();
     gh.singleton<_i361.Dio>(() => dioModule.dio);
     gh.factory<_i690.QuranDataSourceContract>(() => _i85.QuranDataSourceImpl());
+    gh.factory<_i927.QuranClient>(() => _i927.QuranClient(gh<_i361.Dio>()));
     gh.factory<_i669.QuranRepoContract>(
       () => _i864.QuranRepoImpl(gh<_i690.QuranDataSourceContract>()),
     );

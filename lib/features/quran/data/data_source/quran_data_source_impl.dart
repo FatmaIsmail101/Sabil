@@ -30,7 +30,7 @@ class QuranDataSourceImpl implements QuranDataSourceContract {
   }
 
   @override
-  Future<BaseResponse<List<TafserResponse>>> getTafseer({
+  Future<BaseResponse<TafserResponse>> getTafseer({
     required int tafseerId,
     required int suraNumber,
     required int ayahNumber,
@@ -41,9 +41,9 @@ class QuranDataSourceImpl implements QuranDataSourceContract {
         suraNumber: suraNumber,
         ayahNumber: ayahNumber,
       );
-      return SuccessBaseResponse<List<TafserResponse>>(result);
+      return SuccessBaseResponse<TafserResponse>(result);
     } catch (e) {
-      return ErrorBaseResponse<List<TafserResponse>>(e.toString());
+      return ErrorBaseResponse<TafserResponse>(e.toString());
     }
   }
 }

@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   final AssetGenImage hadithSelected = const AssetGenImage(
     'assets/icons/hadith_selected.png',
   );
+  final AssetGenImage iconLauncher = const AssetGenImage(
+    'assets/icons/icon_launcher.png',
+  );
   final AssetGenImage quran = const AssetGenImage('assets/icons/quran.png');
   final AssetGenImage quranSvgrepoCom1 = const AssetGenImage(
     'assets/icons/quran-svgrepo-com 1.png',
@@ -48,6 +51,9 @@ class $AssetsIconsGen {
 class $Assets20xGen {
   const $Assets20xGen();
 
+  final AssetGenImage iconLauncher2x = const AssetGenImage(
+    'assets/icons/2.0x/icon_launcher@2x.png',
+  );
   final AssetGenImage quranSvgrepoCom12x = const AssetGenImage(
     'assets/icons/2.0x/quran-svgrepo-com 1@2x.png',
   );
@@ -59,6 +65,9 @@ class $Assets20xGen {
 class $Assets30xGen {
   const $Assets30xGen();
 
+  final AssetGenImage iconLauncher3x = const AssetGenImage(
+    'assets/icons/3.0x/icon_launcher@3x.png',
+  );
   final AssetGenImage quranSvgrepoCom13x = const AssetGenImage(
     'assets/icons/3.0x/quran-svgrepo-com 1@3x.png',
   );
@@ -77,6 +86,9 @@ class $AssetsImagesGen {
   );
   final AssetGenImage moseque = const AssetGenImage(
     'assets/images/moseque.png',
+  );
+  final AssetGenImage mostRecentImage = const AssetGenImage(
+    'assets/images/most_recent_image.png',
   );
   final AssetGenImage onboarding1 = const AssetGenImage(
     'assets/images/onboarding1.png',

@@ -15,7 +15,7 @@ class QuranUseCase {
     return result;
   }
 
-  Future<BaseResponse<List<TafserResponse>>> getTafseer({
+  Future<BaseResponse<TafserResponse>> getTafseer({
     required int tafseerId,
     required int suraNumber,
     required int ayahNumber,

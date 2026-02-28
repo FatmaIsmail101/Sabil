@@ -23,7 +23,7 @@ class QuranRepoImpl implements QuranRepoContract {
   }
 
   @override
-  Future<BaseResponse<List<TafserResponse>>> getTafseer({
+  Future<BaseResponse<TafserResponse>> getTafseer({
     required int tafseerId,
     required int suraNumber,
     required int ayahNumber,
@@ -38,7 +38,7 @@ class QuranRepoImpl implements QuranRepoContract {
       return result;
     } catch (e) {
       print(e.toString());
-      return ErrorBaseResponse<List<TafserResponse>>("Something went wrong");
+      return ErrorBaseResponse<TafserResponse>("Something went wrong");
     }
   }
 }

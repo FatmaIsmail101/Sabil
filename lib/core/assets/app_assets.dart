@@ -26,4 +26,5 @@ abstract class AppAssets {
   static const String quranDetails2 = "assets/images/quran_details2.png";
   static const String quranDetailsMoseque =
       "assets/images/quran_details_moseque.png";
+  static const String mostRecentImage = "assets/images/most_recent_image.png";
 }

@@ -20,7 +20,7 @@ class _QuranClient implements QuranClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<TafserResponse>> getTafseer({
+  Future<TafserResponse> getTafseer({
     required int tafseerId,
     required int suraNumber,
     required int ayahNumber,
@@ -29,24 +29,20 @@ class _QuranClient implements QuranClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<TafserResponse>>(
+    final _options = _setStreamType<TafserResponse>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'http://api.quran-tafseer.com/tafseer/${tafseerId}/${suraNumber}/${ayahNumber}',
+            '/tafseer/${tafseerId}/${suraNumber}/${ayahNumber}',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<TafserResponse> _value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late TafserResponse _value;
     try {
-      _value = _result.data!
-          .map(
-            (dynamic i) => TafserResponse.fromJson(i as Map<String, dynamic>),
-          )
-          .toList();
+      _value = TafserResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options, response: _result);
       rethrow;

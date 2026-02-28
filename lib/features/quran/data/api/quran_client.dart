@@ -8,12 +8,13 @@ import '../model/tafser_response.dart';
 part 'quran_client.g.dart';
 
 @RestApi()
-@factoryMethod
+@injectable
 abstract class QuranClient {
+  @factoryMethod
   factory QuranClient(Dio dio) = _QuranClient;
   //http://api.quran-tafseer.com/tafseer/1/1/1
   @GET("${Endpoints.tafser}/{tafseer_id}/{sura_number}/{ayah_number}")
-  Future<List<TafserResponse>> getTafseer({
+  Future<TafserResponse> getTafseer({
     @Path("tafseer_id") required int tafseerId,
     @Path("sura_number") required int suraNumber,
     @Path("ayah_number") required int ayahNumber,
